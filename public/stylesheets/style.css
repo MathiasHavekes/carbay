@@ -1,8 +1,12 @@
+@import url("colors.css");
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.2rem sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
-a {
-  color: #00B7FF;
+.flex-1 {
+  flex: 1;
 }
