@@ -1,7 +1,11 @@
 @import url("colors.css");
 
-a {
+.navbar a {
     font-family: Helvetica, Verdana, Arial, sans-serif;
-    font-weight: 501;
     letter-spacing: 1px;
+}
+
+.nav-brand img {
+    width: 60px; 
+    height: 28px;
 }

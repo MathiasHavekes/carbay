@@ -1,0 +1,13 @@
+@import url("colors.css");
+
+.title {
+    text-align: center;
+}
+.subtitle {
+    text-align: center;
+}
+
+.travel-viewer {
+    display: flex;
+    flex-direction: row;
+}

@@ -4,23 +4,19 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheets\style.css"/>
     <link rel="stylesheet" href="stylesheets\nav_bar.css"/>
+    <link rel="stylesheet" href="stylesheets\index.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
 
     <title></title>
   </head>
   <body>
-      <div id="header">
-        {% include 'nav_bar.twig' %}
-      </div>
+      {% include 'nav_bar.twig' %}
 
-      <div class="has-background-black-ter">
+      <main class="has-background-black-bis">
         {% block body %}
         {% endblock %}
-        <span class="flex-1"></span>
-      </div>
-
-      <span class="flex-1"></span>
+      </main>
 
       <div id="footer">
 
