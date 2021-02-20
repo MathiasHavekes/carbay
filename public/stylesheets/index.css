@@ -1,5 +1,12 @@
 @import url("colors.css");
 
+.home-page {
+    height: 115vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .title {
     text-align: center;
 }
@@ -10,4 +17,5 @@
 .travel-viewer {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
