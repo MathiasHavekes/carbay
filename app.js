@@ -3,9 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const dotenv =require('dotenv');
+dotenv.config({path: './.env'});
+const mysql =require ('mysql');
+const { createConnection } = require("mysql");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var authRouter = require('./routes/auth');
 var car_renting = require('./routes/car_renting')
 
 var app = express();
@@ -21,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+var authRouter = require('./routes/auth');
 app.use('/car_renting', car_renting);
 
 // catch 404 and forward to error handler
