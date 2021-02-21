@@ -1,18 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const dotenv =require('dotenv');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const dotenv = require('dotenv');
+
+// Routes
+const indexRouter = require('./routes/index');
+const signUpRouter = require('./routes/signUp');
+const carRentingRouter = require('./routes/rentCar');
+
+const app = express();
 dotenv.config({path: './.env'});
-const mysql =require ('mysql');
-const { createConnection } = require("mysql");
-
-var indexRouter = require('./routes/index');
-var authRouter = require('./routes/auth');
-var car_renting = require('./routes/car_renting')
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,8 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-var authRouter = require('./routes/auth');
-app.use('/car_renting', car_renting);
+app.use('/signup', signUpRouter);
+app.use('/rent/car', carRentingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

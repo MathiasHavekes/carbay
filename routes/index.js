@@ -1,13 +1,48 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-var destination_pictures = ['images\\gaspesie.jpg', 'images\\mont_tramblant.jpg', 'images\\quebec.jpg', 'images\\hiver_quebec.jpg'];
-var destination_titles = ['La Gaspesie', 'Le Mont Tramblant', 'Quebec'];
-var destination_descriptions = ['', '', ''];
+class Destination {
+  constructor(src, title, description) {
+    this.src = src;
+    this.title = title;
+    this.description = description;
+  }
+}
+
+class Car {
+  constructor(src, title, description) {
+    this.src = src;
+    this.title = title;
+    this.description = description;
+  }
+}
+
+const destinations = [
+  new Destination('images/gaspesie.jpg', 'La Gaspésie', ''),
+  new Destination('images/mont_tramblant.jpg', 'Le Mont Tramblant', ''),
+  new Destination('images/quebec.jpg', 'Quebec', ''),
+  new Destination('images/hiver_quebec.jpg', 'L\'expérience hivernale', '')
+]
+
+//TODO: lier ces donnees a la bd
+const cars = [
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { destination_pictures });
+  res.render('index', { destinations, cars });
 });
 
 module.exports = router;

@@ -4,7 +4,7 @@ const router = express.Router();
 
 // gère les requêtes get sur la racine 
 router.get('/', (req,res)=>{
-    res.render('creationcompte');
+    res.render('signUp');
 });
 
 router.post('/', authController.register);

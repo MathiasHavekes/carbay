@@ -3,7 +3,8 @@ ID_VOITURE int PRIMARY KEY,
 Plaque_Immatriculation varchar(20) UNIQUE,
 Modèle varchar(50) NOT NULL,
 Couleur varchar(20) NOT NULL,
-Etat varchar(20) NOT NULL);
+Etat varchar(20) NOT NULL,
+URL_IMAGE varchar(50) NOT NULL);
 
 create or replace table centre(
 ID_CENTRE int PRIMARY KEY,

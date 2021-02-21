@@ -19,13 +19,13 @@ exports.register = (req, res) =>{
         }
         if(result.length > 0){
             console.log('Cet Email est deja utilisé');
-            return res.render('CreationCompte');            
+            return res.render('sign_up');            
         }
         db.query('INSERT INTO client SET ?', {Nom: Nom,Prénom: Prénom, Password: Password,Email:Email, Téléphone: Téléphone}, (error, result) =>{ 
             if(error){
                 console.log(error);
             }else{
-                return res.render('Connexion'); 
+                return res.render('log_in'); 
             }             
         }
     )})};
@@ -38,11 +38,11 @@ exports.register = (req, res) =>{
         }
         if(result.length > 0){
             console.log('Connexion Réussie');
-            return res.render('Connexion');            
+            return res.render('log_in');            
         }
         else {
             console.log('Identifiants incorrects');
-            return res.render('Connexion'); 
+            return res.render('log_in'); 
         }
     });
     }

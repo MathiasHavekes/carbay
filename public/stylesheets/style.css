@@ -1,16 +1,17 @@
 @import url("colors.css");
 
+* {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 html, body {
   min-height: 100vh;
 }
 
-body {
-  padding: 50px;
-  font: 1.2rem sans-serif;
-  display: flex;
-  flex-direction: column;
-}
-
 main {
   flex: 1;
+}
+
+img {
+  object-fit: cover;
 }

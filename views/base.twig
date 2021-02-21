@@ -3,21 +3,26 @@
   <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" type="text/css" href="stylesheets\style.css"/>
-    <link rel="stylesheet" type="text/css" href="stylesheets\nav_bar.css"/>
-    <link rel="stylesheet" type="text/css" href="stylesheets\index.css"/>
-    <link rel="stylesheet" type="text/css" href="stylesheets\travel_card.css"/>
-    <link rel="stylesheet" type="text/css" href="stylesheets\authentification.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/navBar.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/travelCard.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/carCard.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/logIn.css"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/rentCar.css"/>
 
-    <script src="javascripts\map.js"></script>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="~bulma-calendar/dist/css/bulma-calendar.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400&display=swap" rel="stylesheet">
 
-    <title></title>
+    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+    <script src="javascripts\calendar.js"></script>
+    <title>carbay</title>
   </head>
   <body>
-      {% include 'nav_bar.twig' %}
+      {% include 'navBar.twig' %}
 
       <main class="has-background-black-bis">
         {% block body %}
