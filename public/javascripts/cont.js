@@ -1,6 +1,4 @@
 const mysql = require ('mysql');
-
-// traitement de l'authentification
 exports.register = (req, res) =>{
     const db = mysql.createConnection({
         host: process.env.host,
@@ -10,22 +8,22 @@ exports.register = (req, res) =>{
     })
     var btn = req.body.button;
     console.log(btn);
-    // recuperation des information du formulaire
     if(btn == "Creation"){
         const {Nom, Prénom, Password, Email, Téléphone}  = req.body;
+        console.log(btn);
     db.query('SELECT Email FROM client  WHERE Email= ?', [Email], async (error, result) =>{        
         if(error){
             console.log(error);
         }
         if(result.length > 0){
             console.log('Cet Email est deja utilisé');
-            return res.render('sign_up');            
+            return  res.render('signUp');         
         }
         db.query('INSERT INTO client SET ?', {Nom: Nom,Prénom: Prénom, Password: Password,Email:Email, Téléphone: Téléphone}, (error, result) =>{ 
             if(error){
                 console.log(error);
             }else{
-                return res.render('log_in'); 
+                return res.render('index'); 
             }             
         }
     )})};
@@ -38,11 +36,11 @@ exports.register = (req, res) =>{
         }
         if(result.length > 0){
             console.log('Connexion Réussie');
-            return res.render('log_in');            
+            return res.render('index');            
         }
         else {
             console.log('Identifiants incorrects');
-            return res.render('log_in'); 
+            return res.render('logIn'); 
         }
     });
     }

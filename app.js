@@ -3,14 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const dotenv = require('dotenv');
 
 // Routes
 const indexRouter = require('./routes/index');
-const signUpRouter = require('./routes/signUp');
+const signupRouter = require('./routes/signup');
+const loginRouter = require('./routes/login');
 const carRentingRouter = require('./routes/rentCar');
 
 const app = express();
+const dotenv = require('dotenv');
 dotenv.config({path: './.env'});
 
 // view engine setup
@@ -24,7 +25,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/signup', signUpRouter);
+app.use('/signup', signupRouter);
+app.use('/login', loginRouter);
 app.use('/rent/car', carRentingRouter);
 
 // catch 404 and forward to error handler

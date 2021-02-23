@@ -3,10 +3,10 @@
 {% block body %}
 <div class="container">
       <h5 class="titre">Création de Compte</h5>
-<form action="/" method="POST">
+<form action="/signup" method="POST">
   <div class="field">
     <p class="control has-icons-left">
-      <input class="input" type="text"  id="Nom" name="Nom" Placeholder="Nom...">
+      <input  class="input" type="text"  id="Nom" name="Nom" Placeholder="Nom...">
         <span class="icon is-small is-left">
           <i class="material-icons-round">lock</i>
         </span>
@@ -32,7 +32,6 @@
     <p class="control has-icons-left has-icons-right">
       <input class="input" type="email"  id="Email" name="Email" Placeholder="Email...">       
           <i class="fas fa-envelope"></i>
-        </span>
         <span class="icon is-small is-left">
           <span class="material-icons-round">mail</span>
         </span>
@@ -48,10 +47,11 @@
   </div>
   <div class="field">
     <p class="control">
-      <button class="button is-success" name="button" value="Creation">
+      <button type="submit" id="Creation" class="button is-success" name="button" value="Creation">
         Se connecter
       </button>
     </p>
+    </div>
   </form>
 </div>
 {% endblock %}
