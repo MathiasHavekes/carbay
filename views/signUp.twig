@@ -2,13 +2,13 @@
 
 {% block body %}
 <div class="container">
-      <h5 class="titre">Création de Compte</h5>
+      <h5 class="titre">{{message}}</h5>
 <form action="/signup" method="POST">
   <div class="field">
     <p class="control has-icons-left">
       <input  class="input" type="text"  id="Nom" name="Nom" Placeholder="Nom...">
         <span class="icon is-small is-left">
-          <i class="material-icons-round">lock</i>
+          <i class="material-icons-round">face</i>
         </span>
     </p>
   </div>
@@ -16,7 +16,7 @@
     <p class="control has-icons-left">
       <input class="input" type="text"  id="Prénom" name="Prénom" Placeholder="Prénom...">
         <span class="icon is-small is-left">
-          <i class="material-icons-round">lock</i>
+          <i class="material-icons-round">face</i>
         </span>
     </p>
   </div>
@@ -24,7 +24,7 @@
     <p class="control has-icons-left">
       <input class="input" type="tel"  id="Téléphone" name="Téléphone" Placeholder="Téléphone...">
         <span class="icon is-small is-left">
-          <i class="material-icons-round">lock</i>
+          <i class="material-icons-round">phone</i>
         </span>
     </p>
   </div>

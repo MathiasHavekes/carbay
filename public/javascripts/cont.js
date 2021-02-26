@@ -1,4 +1,7 @@
+const { Router } = require('express');
 const mysql = require ('mysql');
+const router = require('../../routes');
+
 exports.register = (req, res) =>{
     const db = mysql.createConnection({
         host: process.env.host,
@@ -11,13 +14,13 @@ exports.register = (req, res) =>{
     if(btn == "Creation"){
         const {Nom, Prénom, Password, Email, Téléphone}  = req.body;
         console.log(btn);
-    db.query('SELECT Email FROM client  WHERE Email= ?', [Email], async (error, result) =>{        
+        db.query('SELECT Email FROM client  WHERE Email= ?', [Email], async (error, result) =>{        
         if(error){
             console.log(error);
         }
         if(result.length > 0){
-            console.log('Cet Email est deja utilisé');
-            return  res.render('signUp');         
+            console.log("Cet Email est deja utilisé");
+            return  res.render('signup',{message : "Cet Email est deja utilisé"});         
         }
         db.query('INSERT INTO client SET ?', {Nom: Nom,Prénom: Prénom, Password: Password,Email:Email, Téléphone: Téléphone}, (error, result) =>{ 
             if(error){
@@ -40,7 +43,7 @@ exports.register = (req, res) =>{
         }
         else {
             console.log('Identifiants incorrects');
-            return res.render('logIn'); 
+            return res.render('login',{message : "Identifiants incorrects "}); 
         }
     });
     }
