@@ -36,8 +36,7 @@ const cars = [
   new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
   new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
   new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
+  
 ]
 
 /* GET home page. */

@@ -1,35 +1,36 @@
-create or replace table Voiture(
+create or replace table VOITURE(
 ID_VOITURE int PRIMARY KEY,
-Plaque_Immatriculation varchar(20) UNIQUE,
-Modèle varchar(50) NOT NULL,
-Couleur varchar(20) NOT NULL,
-Etat varchar(20) NOT NULL,
-URL_IMAGE varchar(50) NOT NULL);
+PLAQUE_IMMATRICULATION varchar(20) UNIQUE,
+MODELE varchar(50) NOT NULL,
+COULEUR varchar(20) NOT NULL,
+ETAT varchar(20) NOT NULL,
+URL_IMAGE varchar(50) NOT NULL,
+DESCRIPTION_VOITURE varchart varchar(100) NOT NULL);
 
-create or replace table centre(
+create or replace table CENTRE(
 ID_CENTRE int PRIMARY KEY,
-Région Varchar(20) NOT NULL,
-Ville Varchar(20) NOT NULL,
-Adresse Varchar(50) NOT NULL,
-Code_Postal Varchar(20) NOT NULL);
+REGION varchar(20) NOT NULL,
+VILLE varchar(20) NOT NULL,
+ADRESSE varchar(50) NOT NULL,
+CODE_POSTALE varchar(20) NOT NULL);
 
-create or replace table client(
+create or replace table CLIENT(
 ID_CLIENT int AUTO_INCREMENT PRIMARY KEY,
-Nom varchar(50) NOT NULL,
-Prénom varchar(50) NOT NULL,
-Email varchar(50),
-Téléphone varchar(20),
-N_Carte_Banquare int,
+NOM varchar(50) NOT NULL,
+PRENOM varchar(50) NOT NULL,  
+EMAIL varchar(50),
+TELEPHONE varchar(20),
+NUMERO_CB int,
 Password varchar(50));
 
-create or replace table location(
+create or replace table LOCATION_VOITURE(
 ID_LOCATION int AUTO_INCREMENT PRIMARY KEY,
-Prix int NOT NULL,
-Date_Départ date NOT NULL,
-Date_Arrivée date,
+PRIX int NOT NULL,
+DATE_DEPART date NOT NULL,
+DATE_ARRIVEE date,
 ID_CLIENT int,
-Centre_Départ int NOT NULL,
-Centre_Arrivée int,
-FOREIGN KEY (ID_CLIENT) REFERENCES Client(ID_CLIENT),
-FOREIGN KEY (Centre_Départ) REFERENCES Centre(ID_CENTRE),
-FOREIGN KEY (Centre_Arrivée) REFERENCES Centre(ID_CENTRE));
+CENTRE_DEPART int NOT NULL,
+CENTRE_ARRIVEE int,
+FOREIGN KEY (ID_CLIENT) REFERENCES CLIENT(ID_CLIENT),
+FOREIGN KEY (CENTRE_DEPART) REFERENCES CENTRE(ID_CENTRE),
+FOREIGN KEY (CENTRE_ARRIVEE) REFERENCES CENTRE(ID_CENTRE));

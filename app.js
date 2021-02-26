@@ -6,8 +6,8 @@ const logger = require('morgan');
 
 // Routes
 const indexRouter = require('./routes/index');
-const signupRouter = require('./routes/signup');
-const loginRouter = require('./routes/login');
+const signupRouter = require('./routes/signUp');
+const loginRouter = require('./routes/logIn');
 const carRentingRouter = require('./routes/rentCar');
 
 const app = express();

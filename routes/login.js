@@ -4,7 +4,7 @@ const router = express.Router();
 
 // gère les requêtes get sur la racine 
 router.get('/', (req,res)=>{
-    res.render('login');
+    res.render('logIn');
 });
 
 router.post('/', authController.register);

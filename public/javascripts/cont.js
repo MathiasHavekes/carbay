@@ -18,7 +18,7 @@ exports.register = (req, res) =>{
         if(result.length > 0){
             console.log('Cet Email est deja utilisé');
             return  res.render('signUp');         
-        }
+        } 
         db.query('INSERT INTO client SET ?', {Nom: Nom,Prénom: Prénom, Password: Password,Email:Email, Téléphone: Téléphone}, (error, result) =>{ 
             if(error){
                 console.log(error);
