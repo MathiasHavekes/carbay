@@ -1,0 +1,8 @@
+<div class="select location-selection">
+  <select name="{{ name }}" id="{{ name }}">
+    <option value="" disabled selected hidden>Choisir un centre</option>
+    {% for l in locations %}
+      <option value="{{ l.id }}">{{ l.name }}</option>
+    {% endfor %}
+  </select>
+</div>

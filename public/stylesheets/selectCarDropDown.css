@@ -1,0 +1,17 @@
+div.car-selection {
+  width: 300px;
+  min-width: 300px;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

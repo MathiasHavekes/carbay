@@ -1,4 +1,4 @@
-{% extends 'base.twig' %}
+{% extends "base.twig" %}
 
 {% block body %}
   <div class="home-page container is-fullhd">
@@ -9,7 +9,7 @@
 
     <div class="travel-viewer section is-medium">
       {% for d in destinations %}
-        {% include 'travelCard.twig' %}
+        {% include "travelCard.twig" %}
       {% endfor %}
     </div>
 
@@ -20,7 +20,7 @@
 
     <div class="car-viewer section is-medium">
       {% for c in cars %}
-        {% include 'carCard.twig' %}
+        {% include "carCard.twig" %}
       {% endfor %}
     </div>
 

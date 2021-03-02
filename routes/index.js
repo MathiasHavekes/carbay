@@ -1,15 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const pool = require('../public/javascripts/dbConnection');
+var carNumber = 0;
+var cars = [];
 
 class Destination {
-  constructor(src, title, description) {
-    this.src = src;
-    this.title = title;
-    this.description = description;
-  }
-}
-
-class Car {
   constructor(src, title, description) {
     this.src = src;
     this.title = title;
@@ -24,22 +19,27 @@ const destinations = [
   new Destination('images/hiver_quebec.jpg', 'L\'expérience hivernale', '')
 ]
 
-//TODO: lier ces donnees a la bd
-const cars = [
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  new Car('images_bd/jaguar_i-pace.jpg', 'Jaguar I-Pace', ''),
-  
-]
+class Car {
+  constructor({ID_VOITURE, PLAQUE_IMMATRICULATION, MODELE, COULEUR, ETAT, URL_IMAGE, DESCRIPTION_VOITURE}) {
+    this.src = URL_IMAGE;
+    this.title = MODELE;
+    this.description = DESCRIPTION_VOITURE;
+  }
+}
 
-/* GET home page. */
+pool.getConnection(function(err, connection) {
+  if (err) throw err;
+
+  connection.query("SELECT * FROM VOITURE GROUP BY MODELE ORDER BY MODELE", function (err, results, fields) {
+    if (err) throw err;
+    results.forEach((car) => {
+      cars.push(new Car(car));
+    });
+  });
+
+  connection.release();
+});
+
 router.get('/', function(req, res, next) {
   res.render('index', { destinations, cars });
 });

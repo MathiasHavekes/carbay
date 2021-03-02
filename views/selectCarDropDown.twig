@@ -1,0 +1,15 @@
+<div class="select car-selection">
+  <select id="carsList" style="display:none;">
+    <option value="" disabled selected hidden>Choisir une voiture</option>
+    {% for c in cars %}
+      <option value="{{ c.id }}" data-location="{{ c.location }}">
+				{{ c.model }} 
+        {# <span class="circle" style="background: {{ c.color }};"></span> #}
+			</option>
+    {% endfor %}
+  </select>
+
+  <select name="car" id="car">
+    <option>Choisir une voiture</option>
+  </select>
+</div>

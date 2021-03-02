@@ -1,13 +1,14 @@
 const { Router } = require('express');
 const mysql = require ('mysql');
 const router = require('../../routes');
+const connection = require('./dbConnection');
 
 exports.register = (req, res) =>{
     const db = mysql.createConnection({
         host: process.env.host,
         user: process.env.user,
         password: process.env.password,
-        database :process.env.Database,
+        database: process.env.Database,
     })
     var btn = req.body.button;
     console.log(btn);
