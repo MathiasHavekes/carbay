@@ -29,15 +29,21 @@
 				</a>
 
         <div class="navbar-dropdown is-right">
-          <a class="navbar-item">
-            Mon compte
-          </a>
-          <a href="/signUp" class="navbar-item">
-            S'enregistrer
-          </a>
-          <a href="/logIn" class="navbar-item">
-            Se connecter
-          </a>
+					{% if userId %}
+						<a class="navbar-item">
+							Mon compte
+						</a>
+						<a href="/logOut" class="navbar-item">
+							Se déconnecter
+						</a>
+					{% elseif not userId %}
+						<a href="/signUp" class="navbar-item">
+							S'enregistrer
+						</a>
+						<a href="/logIn" class="navbar-item">
+							Se connecter
+						</a>
+					{% endif %}
         </div>
 			</div>
 		</div>

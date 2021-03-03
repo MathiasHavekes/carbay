@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../public/javascripts/dbConnection");
-var carNumber = 0;
+const enLocation = "enLocation";
 var cars = [];
 var locations = [];
+var pricePerDays = 0;
 
 class Car {
   constructor({
@@ -34,34 +35,13 @@ class Location {
   }
 }
 
-class Rental {
-  constructor({
-    ID_LOCATION,
-    PRIX,
-    DATE_DEPART,
-    DATE_ARRIVEE,
-    ID_CLIENT,
-    ID_VOITURE,
-    CENTRE_DEPART,
-    CENTRE_ARRIVEE,
-  }) {
-    this.price = PRIX;
-    this.startDate = DATE_DEPART;
-    this.endDate = DATE_ARRIVEE;
-    this.client = ID_CLIENT;
-    this.car = ID_VOITURE;
-    this.startLocation = CENTRE_DEPART;
-    this.endLocation = CENTRE_ARRIVEE;
-  }
-}
-
-pool.getConnection(function (err, connection) {
+pool.getConnection((err, connection) => {
   if (err) throw err;
 
   connection.query(
     "SELECT * FROM VOITURE WHERE ETAT = ? ORDER BY MODELE",
     ["libre"],
-    function (err, results, fields) {
+    (err, results, fields) => {
       if (err) throw err;
       results.forEach((car) => {
         cars.push(new Car(car));
@@ -69,7 +49,7 @@ pool.getConnection(function (err, connection) {
     }
   );
 
-  connection.query("SELECT * FROM CENTRE", function (err, results, fields) {
+  connection.query("SELECT * FROM CENTRE", (err, results, fields) => {
     if (err) throw err;
     results.forEach((location) => {
       locations.push(new Location(location));
@@ -78,27 +58,87 @@ pool.getConnection(function (err, connection) {
   connection.release();
 });
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("rentCar", { cars, locations });
+var redirectSignUp = (req, res, next) => {
+  if (!req.session.userId) {
+    res.redirect("/signUp");
+  } else {
+    next();
+  }
+};
+
+var calculPrice = (startDate, endDate, pricePerDays) => {
+  firstDate = new Date(startDate);
+  secondDate = new Date(endDate);
+
+  var timeDiff = Math.abs(secondDate.getTime() - firstDate.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  return diffDays * pricePerDays;
+};
+
+var isOnline = (userId) => {
+  if (userId >= 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+router.get("/", redirectSignUp, (req, res, next) => {
+  res.render("rentCar", {
+    cars,
+    locations,
+    userId: isOnline(req.session.userId),
+  });
 });
 
-router.post("/", function (req, res, next) {
-  console.log(req.body);
-  const rental = new Rental(
-    50,
-    req.body.startDate,
-    req.body.endDate,
-    1,
-    req.body.car,
-    req.body.startLocation,
-    req.body.endtLocation
-  );
+router.post("/submit", redirectSignUp, (req, res, next) => {
+  const { startDate, endDate, endLocation, startLocation, car } = req.body;
 
-  console.log(req.body.startDate);
-  console.log(req.body.startLocation);
-  console.log(rental);
-  res.redirect("/rent/car");
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    connection.query(
+      "SELECT PRIX_PAR_JOUR FROM VOITURE WHERE ID_VOITURE= ?",
+      req.body.car,
+      (err, results, fields) => {
+        if (err) throw err;
+        pricePerDays = results[0].PRIX_PAR_JOUR;
+      }
+    );
+    connection.release();
+  });
+
+  pool.getConnection((err, connection) => {
+    if (err) throw err;
+    connection.query(
+      "INSERT INTO LOCATION_VOITURE SET ?",
+      {
+        PRIX: calculPrice(startDate, endDate, pricePerDays),
+        DATE_DEPART: startDate,
+        DATE_ARRIVEE: endDate,
+        ID_CLIENT: req.session.userId,
+        ID_VOITURE: car,
+        CENTRE_DEPART: startLocation,
+        CENTRE_ARRIVEE: endLocation,
+      },
+      (err, results, fields) => {
+        if (err) throw err;
+      }
+    );
+
+    connection.query(
+      "UPDATE VOITURE SET ETAT= ?, CENTRE_POSITION= ? WHERE ID_VOITURE= ?",
+      {
+        ETAT: enLocation,
+        CENTRE_POSITION: endLocation,
+        ID_VOITURE: car,
+      },
+      (err, results, fields) => {
+        if (err) throw err;
+      }
+    );
+    res.redirect("/rent/car");
+    connection.release();
+  });
 });
 
 module.exports = router;

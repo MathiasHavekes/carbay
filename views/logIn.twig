@@ -2,11 +2,11 @@
 
 {% block body %}
 <div class="container">
-      <h1 class = "titre">{{message}}</h1>
-<form action="/login" method="POST">
+  <h1 class = "titre">{{message}}</h1>
+<form action="/logIn/submit" method="post">
   <div class="field">
     <p class="control has-icons-left has-icons-right">
-      <input  class="input" type="email"  id="Email" name="Email" Placeholder="Email...">       
+      <input  class="input" type="email" name="email" Placeholder="Email...">       
           <i class="fas fa-envelope"></i>
         </span>
         <span class="icon is-small is-left">
@@ -16,7 +16,7 @@
   </div>
   <div class="field">
     <p class="control has-icons-left">
-      <input class="input" type="password"  id="Password" name="Password" Placeholder="Mot de passe...">
+      <input class="input" type="password" name="password" Placeholder="Mot de passe...">
         <span class="icon is-small is-left">
           <i class="material-icons-round">lock</i>
         </span>
@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <p class="control">
-      <button class="button is-success" name="button" value="Connexion">
+      <button class="button has-background-white-ter has-text-black-ter" type="submit">
         Se connecter
       </button>
     </p>
