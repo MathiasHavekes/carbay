@@ -1,3 +1,8 @@
+INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (1, 'Carbay Rental Montreal Twon Center', '1440 Rue Drummond, Montréal, QC H3B 2E3', '45.49906776844369', '-73.57574883846779');
+INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (2, 'Carbay Rental Montreal AirPort', '5350 Rue Ferrier, Montréal, QC H4P 1L9', '45.496261619460014', '-73.65891653947715');
+INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (3, 'Carbay Rental Trois-Rivières', '727 Rue Saint Christophe, Trois-Rivières, QC G9A 3L9', '46.35723921809508', '-72.55038135103182');
+INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (4, 'Carbay Rental Quebec', '768 Rue Aiguillon, Québec, QC G1R 1M7', '46.81191807217775', '-71.21700334837165');
+
 INSERT INTO `voiture`(`PLAQUE_IMMATRICULATION`, `MODELE`, `COULEUR`, `ETAT`, `URL_IMAGE`, `DESCRIPTION_VOITURE`, `PRIX_PAR_JOUR`, `CENTRE_POSITION`) VALUES ('935 VGA','Jaguar I-Pace','#063970','libre','images_bd/jaguar_i-pace.jpg','Autonomie : 470 kilomètres, 50 CAD/jour', 50, 1);
 INSERT INTO `voiture`(`PLAQUE_IMMATRICULATION`, `MODELE`, `COULEUR`, `ETAT`, `URL_IMAGE`, `DESCRIPTION_VOITURE`, `PRIX_PAR_JOUR`, `CENTRE_POSITION`) VALUES ('VB2 GHF','Jaguar I-Pace','#a6a6a6','libre','images_bd/jaguar_i-pace.jpg','Autonomie : 470 kilomètres, 50 CAD/jour', 50, 2);
 INSERT INTO `voiture`(`PLAQUE_IMMATRICULATION`, `MODELE`, `COULEUR`, `ETAT`, `URL_IMAGE`, `DESCRIPTION_VOITURE`, `PRIX_PAR_JOUR`, `CENTRE_POSITION`) VALUES ('VGH BR4','Jaguar I-Pace','#063970','libre','images_bd/jaguar_i-pace.jpg','Autonomie : 470 kilomètres, 50 CAD/jour', 50, 2);
@@ -43,7 +48,3 @@ INSERT INTO `voiture`(`PLAQUE_IMMATRICULATION`, `MODELE`, `COULEUR`, `ETAT`, `UR
 INSERT INTO `voiture`(`PLAQUE_IMMATRICULATION`, `MODELE`, `COULEUR`, `ETAT`, `URL_IMAGE`, `DESCRIPTION_VOITURE`, `PRIX_PAR_JOUR`, `CENTRE_POSITION`) VALUES ('254 321','Tesla Model X','#f2f2f2','libre','images_bd/tesla_model_x.jpg','Autonomie : 507 kilomètres, 35 CAD/jour', 20, 1);
 INSERT INTO `voiture`(`PLAQUE_IMMATRICULATION`, `MODELE`, `COULEUR`, `ETAT`, `URL_IMAGE`, `DESCRIPTION_VOITURE`, `PRIX_PAR_JOUR`, `CENTRE_POSITION`) VALUES ('BHG 25G','Tesla Model X','#f2f2f2','enLocation','images_bd/tesla_model_x.jpg','Autonomie : 507 kilomètres, 35 CAD/jour', 20, null);
 
-INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (1, 'Carbay Rental Montreal Twon Center', '1440 Rue Drummond, Montréal, QC H3B 2E3', '45.49906776844369', '-73.57574883846779');
-INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (2, 'Carbay Rental Montreal AirPort', '5350 Rue Ferrier, Montréal, QC H4P 1L9', '45.496261619460014', '-73.65891653947715');
-INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (3, 'Carbay Rental Trois-Rivières', '727 Rue Saint Christophe, Trois-Rivières, QC G9A 3L9', '46.35723921809508', '-72.55038135103182');
-INSERT INTO `centre`(`ID_CENTRE`, `NOM`, `ADRESSE`, `LAT`, `LNG`) VALUES (4, 'Carbay Rental Quebec', '768 Rue Aiguillon, Québec, QC G1R 1M7', '46.81191807217775', '-71.21700334837165');
