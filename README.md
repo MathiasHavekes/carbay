@@ -1,6 +1,6 @@
 # TP1 du cours d'applications transactionnelles
 
-## Setup le projet avec toutes les dépendances
+### Setup le projet avec toutes les dépendances
 
 ```
 npm install
