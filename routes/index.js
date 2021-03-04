@@ -13,10 +13,10 @@ class Destination {
 }
 
 const destinations = [
-  new Destination("images/gaspesie.jpg", "La Gaspésie", ""),
-  new Destination("images/mont_tramblant.jpg", "Le Mont Tramblant", ""),
-  new Destination("images/quebec.jpg", "Quebec", ""),
-  new Destination("images/hiver_quebec.jpg", "L'expérience hivernale", ""),
+  new Destination("images/gaspesie.jpg", "La Gaspésie", "Venez faire le tour de la Gaspésie."),
+  new Destination("images/mont_tramblant.jpg", "Le Mont Tramblant", "ne vous en faites pas, le mont ne tremble pas vraiment."),
+  new Destination("images/quebec.jpg", "Québec", "vous en aurrez plus que le bout de votre bec !"),
+  new Destination("images/hiver_quebec.jpg", "L'expérience hivernale", "il va juste faire un peu plus froid."),
 ];
 
 class Car {
