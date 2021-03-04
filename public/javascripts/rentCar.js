@@ -9,8 +9,6 @@ function constructOptions(locationId) {
   const carsList = document.getElementById("carsList");
   const car = document.getElementById("car");
 
-  console.log(locationId);
-
   car.innerHTML = "";
 
   for (o of carsList.options) {

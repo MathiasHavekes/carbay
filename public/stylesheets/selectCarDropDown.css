@@ -1,6 +1,5 @@
 div.car-selection {
-  width: 300px;
-  min-width: 300px;
+  width: 200px;
 }
 
 .circle {
@@ -8,10 +7,4 @@ div.car-selection {
   width: 20px;
   height: 20px;
   border: 1px solid black;
-}
-
-option {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }

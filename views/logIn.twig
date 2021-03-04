@@ -1,34 +1,13 @@
 {% extends 'base.twig' %}
 
 {% block body %}
-<div class="container">
-  <h1 class = "titre">{{message}}</h1>
-<form action="/logIn/submit" method="post">
-  <div class="field">
-    <p class="control has-icons-left has-icons-right">
-      <input  class="input" type="email" name="email" Placeholder="Email...">       
-          <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-left">
-          <span class="material-icons-round">mail</span>
-        </span>
-      </p>
+<div class="container is-max-desktop">
+  <div class="section is-medium">
+    {% include "logInForm.twig" %}
   </div>
-  <div class="field">
-    <p class="control has-icons-left">
-      <input class="input" type="password" name="password" Placeholder="Mot de passe...">
-        <span class="icon is-small is-left">
-          <i class="material-icons-round">lock</i>
-        </span>
-    </p>
-  </div>
-  <div class="field">
-    <p class="control">
-      <button class="button has-background-white-ter has-text-black-ter" type="submit">
-        Se connecter
-      </button>
-    </p>
-  </form>
-</div>
 
+  <div class="section is-small">
+    {% include "signUpIfNoAccount.twig" %}
+  </div>
+</div>
 {% endblock %}

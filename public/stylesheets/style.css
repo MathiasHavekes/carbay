@@ -1,10 +1,11 @@
 @import url("colors.css");
 
 * {
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
-html, body {
+html,
+body {
   min-height: 100vh;
 }
 
@@ -19,4 +20,22 @@ main {
 
 img {
   object-fit: cover;
+}
+
+div.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.min-size {
+  width: 300px;
+}
+
+input.calendar {
+  width: 300px;
+}
+
+button.submit {
+  width: 25%;
 }

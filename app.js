@@ -12,6 +12,7 @@ const signupRouter = require("./routes/signUp");
 const loginRouter = require("./routes/logIn");
 const logoutRouteur = require("./routes/logOut");
 const carRentingRouter = require("./routes/rentCar");
+const userAccount = require("./routes/account");
 
 const TWO_HOURS = 1000 * 60 * 60 * 2;
 
@@ -47,6 +48,7 @@ app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/logout", logoutRouteur);
 app.use("/rent/car", carRentingRouter);
+app.use("/user/account", userAccount);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -2,24 +2,24 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../public/javascripts/dbConnection");
 
-var isOnline = (userId) => {
-  if (userId >= 0) {
-    return true;
+var redirectHomePage = (req, res, next) => {
+  if (req.session.userId) {
+    res.redirect("/");
   } else {
-    return false;
+    next();
   }
 };
 
-router.get("/", (req, res, next) => {
+router.get("/", redirectHomePage, (req, res, next) => {
   res.render("login", {
     succes: false,
     errors: req.session.errors,
-    userId: isOnline(req.session.userId),
+    userId: false,
   });
   req.session.errors = null;
 });
 
-router.post("/submit", (req, res, next) => {
+router.post("/submit", redirectHomePage, (req, res, next) => {
   const { email, password } = req.body;
 
   pool.getConnection((err, connection) => {

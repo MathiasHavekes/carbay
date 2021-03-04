@@ -1,12 +1,12 @@
 {% extends 'base.twig' %}
 
 {% block body %}
-  <div class="container is-fullhd">
+  <div class="container is-max-desktop">
     <div class="section is-medium">
-      {% include 'fillAccountCreation.twig' %}
+      {% include 'signUpForm.twig' %}
     </div>
 
-    <div class="section is-medium">
+    <div class="section is-small">
       {% include 'connectIfAccountExist.twig' %}
     </div>
   </div>

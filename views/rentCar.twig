@@ -12,9 +12,14 @@
 			</section>
 
 			<section class="section is-medium">
-				<div class="box container has-background-black-ter has-text-white-ter">
-					{% include "selectCarDropDown.twig" %}
-					<button class="button has-background-white-ter has-text-black-ter" type="submit">Louer</button>
+				<div class="box container has-background-black-ter has-text-white-ter centered">
+					<p class="subtitle is-4 has-text-white-ter mt-6 mb-6">Terminez vos choix</p>
+				  <div class="field centered">
+        		<label class="label has-text-white-ter mt-2">Sélectionnez la voiture de votre choix</label>
+        		{% include "selectCarDropDown.twig" %}
+      		</div>
+
+					<button class="button has-background-white-ter has-text-black-ter mt-6 mb-6 submit" type="submit">Louer</button>
 				</div>
 			</section>
 		</form>

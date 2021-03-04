@@ -3,19 +3,19 @@ const router = express.Router();
 const pool = require("../public/javascripts/dbConnection");
 const { body, validationResult } = require("express-validator");
 
-var isOnline = (userId) => {
-  if (userId >= 0) {
-    return true;
+var redirectHomePage = (req, res, next) => {
+  if (req.session.userId) {
+    res.redirect("/");
   } else {
-    return false;
+    next();
   }
 };
 
-router.get("/", (req, res, next) => {
-  res.render("signup", { userId: isOnline(req.session.userId) });
+router.get("/", redirectHomePage, (req, res, next) => {
+  res.render("signup", { userId: false });
 });
 
-router.post("/submit", (req, res, next) => {
+router.post("/submit", redirectHomePage, (req, res, next) => {
   const { surname, name, phone, email, password, confirmedPassword } = req.body;
 
   pool.getConnection((err, connection) => {
@@ -26,6 +26,7 @@ router.post("/submit", (req, res, next) => {
       (err, results, fields) => {
         if (err) throw err;
         if (results.length > 0) {
+          //TODO: rajouter un message d'erreur au client
           console.log("Cet Email est deja utilisé");
           res.redirect("/signUp");
         }
